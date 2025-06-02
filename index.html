@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="InterRVOS">
+  <meta property="og:title" content="InterRVOS"/>
+  <meta property="og:description" content="InterRVOS: Interaction-aware Referring Video Object Segmentation"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="InterRVOS">
+  <meta name="twitter:description" content="InterRVOS: Interaction-aware Referring Video Object Segmentation">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>InterRVOS: Interaction-aware Referring Video Object Segmentation</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">InterRVOS: Interaction-aware Referring Video Object Segmentation</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://github.com/wooj0216" target="_blank">Woojeong Jin</a>,</span>
+              <span class="author-block">
+                <a href="https://github.com/deep-overflow" target="_blank">Seongchan Kim</a>,</span>
+              <span class="author-block">
+                <a href="https://cvlab.kaist.ac.kr/members/faculty" target="_blank">Seungryong Kim</a><sup>†</sup>
+              </span>
+                <div>
+                </div>
+
+                </div>
+                  <div class="is-size-5 publication-authors">
+                      <span class="author-block">KAIST AI</span>
+                      <br>
+                      <span class="author-block" style="margin-top: -10px;"><small><sup>†</sup>Corresponding Author</small></span>
+                      <!-- <span class="author-block" style="margin-top: 20px;"><small><sup>*</sup>Indicates Equal Contributions</small></span> -->
+                  </div>
+                  <div style="margin-top: 20px;">
+                      <span class="is-size-5 publication-venue">ArXiv 2025</span>
+                  </div>
+
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <svg class="svg-inline--fa fa-file-pdf fa-w-12" style="width: 24px; height: 24px;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file-pdf" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z"></path></svg><!-- <i class="fas fa-file-pdf"></i> Font Awesome fontawesome.com -->
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a href="https://github.com/cvlab-kaist/InterRVOS" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <svg class="svg-inline--fa fa-github fa-w-16" style="width: 24px; height: 24px;" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><!-- <i class="fab fa-github"></i> Font Awesome fontawesome.com -->
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <!-- ArXiv abstract Link -->
+                <span class="link-block">
+                  <a href="" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+                </span>
+
+                <!-- Dataset Link -->
+                <span class="link-block">
+                  <a href="" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <svg class="svg-inline--fa fa-database fa-w-14" style="width: 20px; height: 20px;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="database" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                        <path fill="currentColor" d="M448 73.143v45.714C448 159.143 347.667 192 224 192S0 159.143 0 118.857V73.143C0 32.857 100.333 0 224 0s224 32.857 224 73.143zM448 176v102.857C448 319.143 347.667 352 224 352S0 319.143 0 278.857V176c48.125 33.143 136.208 48.572 224 48.572S399.874 209.143 448 176zm0 160v102.857C448 479.143 347.667 512 224 512S0 479.143 0 438.857V336c48.125 33.143 136.208 48.572 224 48.572S399.874 369.143 448 336z"></path></svg><!-- <i class="fas fa-database"></i> Font Awesome fontawesome.com -->
+                    </span>
+                    <span>Dataset</span>
+                  </a>
+                </span>
+                </div>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section hero teaser-video" style="padding-top: 0rem; padding-bottom: 0rem;"></section>
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <h2 class="title is-3">InterRVOS</h2>
+      <p style="font-size: 20px; text-align: center; max-width: 100%;" id="slider-description">
+        We introduce <b>Interaction-aware Referring Video Object Segmentation</b>, a new task that <br> requires segmenting both actor and target entities involved in an interaction.
+      </p>
+      <br>
+      <div style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap;">
+        <img src="static/results/images/teaser.jpg" alt="Teaser" class="method" style="max-width: 90%; height: auto; display: block;">
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Referring video object segmentation aims to segment the object in a video corresponding to a given natural language expression.
+            While prior work has explored various referring scenarios, including motion-centric or multi-instance expressions, most approaches still focus on localizing a single target object in isolation.
+            However, in comprehensive video understanding, an object’s role is often defined by its interactions with other entities, which are largely overlooked in existing datasets and models.
+            In this work, we introduce <b>InterRVOS</b>, a new task that requires segmenting both actor and target entities involved in an interaction.
+            Each interaction is described through a pair of complementary expressions from different semantic perspectives, enabling fine-grained modeling of inter-object relationships.
+            To tackle this task, we propose <b>InterRVOS-8K</b>, the large-scale and automatically constructed dataset containing diverse interaction-aware expressions, including challenging cases such as motion-only multi-instance expressions.
+            We also present a baseline architecture <b>ReVIOSa</b> designed to handle actor-target segmentation from a single expression, achieving strong performance on both standard and interaction-focused settings.
+            Furthermore, we introduce a actor-target aware evaluation setting that enables a more targeted assessment of interaction understanding.
+            Experimental results demonstrate that our approach outperforms prior methods in modeling complex object interactions for referring video object segmentation task, establishing a strong foundation for future research in interaction-centric video understanding.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<section class="section" id="DatasetStatistics"></section>
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3 has-text-centered">Dataset Statistics</h2>
+    <center>
+      <table border="0.6">
+        <tbody>
+          <tr>
+            <th align="right" bgcolor="BBBBBB">Dataset</th>
+            <th align="center" bgcolor="BBBBBB">Pub. &amp; Year</th>
+            <th align="center" bgcolor="BBBBBB">Videos</th>
+            <th align="center" bgcolor="BBBBBB">Object</th>
+            <th align="center" bgcolor="BBBBBB">Expression</th>
+            <th align="center" bgcolor="BBBBBB">Obj/Video</th>
+            <th align="center" bgcolor="BBBBBB">Actor-Target Interaction</th>
+          </tr>
+          <tr>
+            <td align="right"><a href="https://kgavrilyuk.github.io/publication/actor_action/" target="_blank">A2D Sentence</a></td>
+            <td align="center">CVPR 2018</td>
+            <td align="center">3,782</td>
+            <td align="center">4,825</td>
+            <td align="center">6,656</td>
+            <td align="center">1.28</td>
+            <td align="center">-</td>
+          </tr>
+          <tr>
+            <td align="right" bgcolor="ECECEC"><a href="https://kgavrilyuk.github.io/publication/actor_action/" target="_blank">J-HMDB Sentence</a></td>
+            <td align="center" bgcolor="ECECEC">CVPR 2018</td>
+            <td align="center" bgcolor="ECECEC">928</td>
+            <td align="center" bgcolor="ECECEC">928</td>
+            <td align="center" bgcolor="ECECEC">928</td>
+            <td align="center" bgcolor="ECECEC">1</td>
+            <td align="center" bgcolor="ECECEC">-</td>
+          </tr>    
+          <tr>
+            <td align="right"><a href="https://www.mpi-inf.mpg.de/departments/computer-vision-and-machine-learning/research/video-segmentation/video-object-segmentation-with-language-referring-expressions" target="_blank">Ref-DAVIS</a></td>
+            <td align="center">ACCV 2018</td>
+            <td align="center">90</td>
+            <td align="center">205</td>
+            <td align="center">1,544</td>
+            <td align="center">2.27</td>
+            <td align="center">-</td>
+          </tr>
+          <tr>
+            <td align="right" bgcolor="ECECEC"><a href="https://youtube-vos.org/dataset/rvos/" target="_blank">Ref-Youtube-VOS</a></td>
+            <td align="center" bgcolor="ECECEC">ECCV 2020</td>
+            <td align="center" bgcolor="ECECEC">3,978</td>
+            <td align="center" bgcolor="ECECEC">7,451</td>
+            <td align="center" bgcolor="ECECEC">15,009</td>
+            <td align="center" bgcolor="ECECEC">1.86</td>
+            <td align="center" bgcolor="ECECEC">-</td>
+          </tr>
+          <tr>
+            <td align="right"><a href="https://github.com/henghuiding/MeViS" target="_blank">MeViS</a></td>
+            <td align="center">ICCV 2023</td>
+            <td align="center">2,006</td>
+            <td align="center">8,171</td>
+            <td align="center">28,570</td>
+            <td align="center">4.28</td>
+            <td align="center">-</td>
+          </tr>
+          <tr>
+            <td align="right" bgcolor="ECECEC"><a href="https://github.com/cilinyan/VISA" target="_blank">ReVOS</a></td>
+            <td align="center" bgcolor="ECECEC">ECCV 2024</td>
+            <td align="center" bgcolor="ECECEC">1,042</td>
+            <td align="center" bgcolor="ECECEC">5,535</td>
+            <td align="center" bgcolor="ECECEC">35,074</td>
+            <td align="center" bgcolor="ECECEC">5.31</td>
+            <td align="center" bgcolor="ECECEC">-</td>
+          </tr>
+          <tr>
+            <td align="right"><a href="https://github.com/magic-research/Sa2VA" target="_blank">Ref-SAV</a></td>
+            <td align="center">CVPRW 2025</td>
+            <td align="center">37,311</td>
+            <td align="center">72,509</td>
+            <td align="center">72,509</td>
+            <td align="center">1.94</td>
+            <td align="center">-</td>
+          </tr>
+          <tr>
+            <td align="right" bgcolor="E5E5E5"><b>InterRVOS-8K (Ours)</b></td>
+            <td align="center" bgcolor="E5E5E5"><b>-</b></td>
+            <td align="center" bgcolor="E5E5E5"><b>8,738</b></td>
+            <td align="center" bgcolor="E5E5E5"><b>35,247</b></td>
+            <td align="center" bgcolor="E5E5E5"><b>127,314</b></td>
+            <td align="center" bgcolor="E5E5E5"><b>4.03</b></td>
+            <td align="center" bgcolor="E5E5E5"><b>17,682</b></td>
+          </tr>
+        </tbody>
+        <colgroup>
+          <col>
+          <col>
+          <col>
+          <col>
+          <col>
+          <col>
+          <col>
+          <col>
+          <col>
+        </colgroup>
+      </table>
+    </center><br>
+    <p style="text-align:justify; text-justify:inter-ideograph;width:100%">
+      Our newly proposed <b>InterRVOS-8K</b> offers the <b>largest number of referring expressions</b> and a <b>high object-per-video ratio</b>, enabling richer and
+      more diverse visual grounding across complex scenes compared to existing benchmarks. Unlike
+      existing datasets, InterRVOS-8K also provides <b>interaction-aware referring expressions</b> that explicitly
+      distinguish between actor and target roles, enabling fine-grained understanding of visual interactions.
+    </p>
+  </div>
+</section>
+
+<section class="hero section quantitative-results"></section>
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Dataset Annotation Pipeline</h2>
+        <figure class="image is-centered">
+          <img src="static/results/images/pipeline.jpg" alt="Data Annotation Pipeline" class="method main-quan">
+        </figure>
+
+        <h2 class="content has-text-justified" style="margin-top: 20px;"></h2>
+        Our proposed automatic data annotation pipeline constructs referring expressions for single, multi-object, and interaction scenarios in four stages, which extracts object appearance and motion, detects inter-object interactions, and generates detailed expressions grounded in both visual properties and interaction context.
+        </h2>
+      
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Dataset Samples</h2>
+        <div class="hero-body" style="position: relative; text-align: center;">
+          <button id="arrow-left" style="position: absolute; top: 50%; left: -30px; transform: translateY(-50%); background: none; border: none; cursor: pointer; z-index: 10;">
+            <i class="fas fa-arrow-left" style="font-size: 24px; color: #333;"></i>
+          </button>
+          
+          <div style="position: relative;">
+            <img src="static/results/images/data_samples_1.jpg" alt="Method image" class="method" id="dataset-samples" style="transition: opacity 0.5s ease-in-out; max-width: 100%;">
+
+            <p id="image-caption" style="margin-top: 10px; font-size: 16px; font-style: italic; color: #555;"></p>
+          </div>
+
+          <button id="arrow-right" style="position: absolute; top: 50%; right: -30px; transform: translateY(-50%); background: none; border: none; cursor: pointer; z-index: 10;">
+            <i class="fas fa-arrow-right" style="font-size: 24px; color: #333;"></i>
+          </button>
+        </div>
+        
+        <h2 class="content has-text-justified">
+          Our dataset includes a wide range of referring expressions, covering both challenging cases such as <b>multi-object references and motion-only descriptions</b>,
+          as well as a diverse spectrum of expression granularity— <b>from simple class-level descriptions to fine-grained appearance-based references</b>.
+          In addition to conventional referring expressions, InterRVOS-8K explicitly incorporates <b>interaction-focused expressions that distinguish between actor and target roles</b>.
+          The examples also demonstrate the presence of multiple objects within a single video and highlight the relationships between them,
+          confirming that our dataset effectively captures object-level interactions in complex visual scenes.
+        </h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const images = [
+    {
+      src: 'static/results/images/data_samples_1.jpg',
+    },
+    {
+      src: 'static/results/images/data_samples_2.jpg',
+    },
+    {
+      src: 'static/results/images/data_samples_3.jpg',
+    },
+    {
+      src: 'static/results/images/data_samples_4.jpg',
+    },
+  ];
+
+  let currentIndex = 0;
+
+  function updateImageAndCaption(index) {
+    const mainImage = document.getElementById('dataset-samples');
+    const imageCaption = document.getElementById('image-caption');
+  
+    mainImage.style.opacity = '0';
+
+    setTimeout(() => {
+      mainImage.src = images[index].src;
+      imageCaption.textContent = images[index].caption;
+
+    
+      if (images[index].src.includes('module.jpg')) {
+        mainImage.style.maxWidth = '50%';
+      } else {
+        mainImage.style.maxWidth = '100%';
+      }
+    
+      mainImage.style.opacity = '1';
+    }, 500);
+  }
+
+  document.getElementById('arrow-left').addEventListener('click', function () {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    updateImageAndCaption(currentIndex);
+  });
+
+  document.getElementById('arrow-right').addEventListener('click', function () {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateImageAndCaption(currentIndex);
+  });
+</script>
+
+
+<section class="hero section qualitative-results">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Baseline Approach : ReVIOSa</h2>
+        <figure class="image is-centered">
+          <img src="static/results/images/architecture.jpg" alt="Qualitative Results" class="method main-quan">
+          <h2 class="content has-text-justified" style="margin-top: 20px;">
+            As our proposed dataset InterRVOS-8K emphasizes a detailed understanding of object interactions
+            and diverse motion dynamics, we present <b>ReVIOSa</b> (<u><b>Re</b></u>ferring <u><b>V</b></u>ideo <u><b>I</b></u>nteraction-aware <u><b>O</b></u>bject
+            <u><b>S</b></u>egment<u><b>a</b></u>tion), a baseline architecture tailored for this purpose. Unlike prior RVOS approaches
+            that typically segment only the actor referred to in the language expression, ReVIOSa is designed
+            to jointly reason about and segment both the actor object and the target object, especially in cases
+            involving unidirectional interactions. This enables a richer interpretation of referring expressions by
+            explicitly modeling the relational context between interacting entities.
+          </h2>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero section qualitative-results">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
+        <figure class="image is-centered">
+          <img src="static/results/images/main_qual.jpg" alt="Qualitative Results" class="method main-quan">
+          <figcaption class="has-text-centered caption" style="margin-top: 20px;">Qualitative results on <strong>InterRVOS-8K</strong>.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero section qualitative-results"></section>
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Quantitative Results</h2>
+        <span class="content has-text-centered highlighted-text" ></span>
+          The best-performing results are presented in <strong>bold</strong>, while the second-best results are <u>underlined</u>. <br>
+        </span>
+        <figure class="image is-centered">
+          <img src="static/results/images/main_quan.jpg" alt="Quantitative Results" class="method main-quan" style="margin-top: 20px;">
+          <!-- <figcaption class="has-text-centered caption">Data statistics of InterRVOS-8K.</figcaption> -->
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .qualitative-results .main-quan {
+    max-width: 90%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .qualitative-results .figure {
+    margin-bottom: 10px;
+  }
+
+  .qualitative-results .caption {
+    font-size: 1.0rem;
+    font-weight: 500;
+    margin-top: 5px;
+  }
+
+  .qualitative-results .highlighted-text {
+    text-align: center;
+    display: block;
+    margin-bottom: 20px;
+  }
+</style>
+
+
+
+<!-- BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>
+      </code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
