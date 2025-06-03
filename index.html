@@ -308,7 +308,6 @@
           <button id="arrow-left" style="position: absolute; top: 50%; left: -30px; transform: translateY(-50%); background: none; border: none; cursor: pointer; z-index: 10;">
             <i class="fas fa-arrow-left" style="font-size: 24px; color: #333;"></i>
           </button>
-          
           <div style="position: relative;">
             <img class="teaser-image" src="static/results/images/data_samples_1.jpg" alt="Method image" class="method" id="dataset-samples" style="transition: opacity 0.5s ease-in-out; max-width: 100%;">
 
@@ -412,25 +411,25 @@
     <div class="column is-full-width">
       <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
       <p class="has-text-centered" style="margin-bottom: -30px; color: #666;">
-        <span style="font-size: 20px; vertical-align: middle;">⬇️</span> Click the arrows below to browse more qualitative results.
+        <span style="font-size: 20px; vertical-align: middle;"></span> Click the arrows below to browse more qualitative results.
       </p>
+
       <div class="hero-body" style="position: relative; text-align: center;">
         <button id="qual-arrow-left" style="position: absolute; top: 50%; left: -30px; transform: translateY(-50%); background: none; border: none; cursor: pointer; z-index: 10;">
           <i class="fas fa-arrow-left" style="font-size: 24px; color: #333;"></i>
         </button>
 
         <div style="position: relative;">
-          <img src="static/results/videos/2594144360_clip000.gif" alt="First image" class="method" id="qual-samples" style="transition: opacity 0.5s ease-in-out; max-width: 100%;">
-        
-          <div id="caption-box" style="
-              background: #f9f9f9;
-              padding: 15px;
-              border-radius: 10px;
-              display: inline-block;
-              margin-top: 15px;
-              transition: opacity 0.5s ease-in-out;
-              box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.18); /* 은은한 그림자 */
-            ">
+          <!-- Two alternating video tags -->
+          <video id="videoA" autoplay loop muted playsinline preload="auto" style="max-width: 100%;" class="active-video">
+            <source src="static/results/videos/2594144360_clip000.mp4" type="video/mp4">
+          </video>
+          <video id="videoB" autoplay loop muted playsinline preload="auto" style="max-width: 100%; display: none;" class="buffer-video">
+            <source src="" type="video/mp4">
+          </video>
+
+          <!-- Caption box -->
+          <div id="caption-box" style="background: #f9f9f9; padding: 15px; border-radius: 10px; display: inline-block; margin-top: 15px; box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.18);">
             <p id="qual-caption" style="font-size: 16px; font-style: italic; color: #333; margin-bottom: 10px;">
               Q : Please segment <b>'Man holding a baby'</b>
             </p>
@@ -450,110 +449,73 @@
 
 <style>
   .actor-role {
-    background-color: #d0eaff;  /* pastel blue */
+    background-color: #d0eaff;
     padding: 2px 6px;
     border-radius: 5px;
   }
 
   .target-role {
-    background-color: #ffd6d6;  /* pastel red */
+    background-color: #ffd6d6;
     padding: 2px 6px;
     border-radius: 5px;
   }
 </style>
 
 <script>
-  const images2 = [
-    {
-      src: 'static/results/videos/2594144360_clip000.gif',
-      caption: "Q : Please segment 'Man holding a baby'",
-    },
-    {
-      src: 'static/results/videos/4123900548_clip000.gif',
-      caption: "Q : Please segment 'Adult styling hair of a child'",
-    },
-    {
-      src: 'static/results/videos/5069582011_clip000.gif',
-      caption: "Q : Please segment 'Adult in dark jacket guiding child in helmet'",
-    },
-    {
-      src: 'static/results/videos/5178855777_clip000.gif',
-      caption: "Q : Please segment 'Hand brushing a cat'",
-    },
-    {
-      src: 'static/results/videos/5246766161_clip000.gif',
-      caption: "Q : Please segment 'Blond child in a pink and red dress reaching towards a small black dog'",
-    },
-    {
-      src: "static/results/videos/5640939571_clip000.gif",
-      caption: "Q : Please segment 'Child eating from bowl'",
-    },
-    {
-      src: "static/results/videos/7181519736_clip000.gif",
-      caption: "Q : Please segment 'Person with dark hair feeding child in red'",
-    },
-    {
-      src: "static/results/videos/7315823866_clip000.gif",
-      caption: "Q : Please segment 'Man helping a child'",
-    },
-    {
-      src: "static/results/videos/8236032895_clip000.gif",
-      caption: "Q : Please segment 'Adult with short hair drinking from dark brown bottle'",
-    },
-    {
-      src: "static/results/videos/8369250084_clip000.gif",
-      caption: "Q : Please segment 'Person in white jacket reaching out to child in red and black jacket'",
-    },
-    {
-      src: "static/results/videos/8584945123_clip000.gif",
-      caption: "Q : Please segment 'Baby in red outfit holding bright green ball'",
-    },
-    {
-      src: "static/results/videos/8592396730_clip000.gif",
-      caption: "Q : Please segment 'Adult handing something to child'",
-    },
-    {
-      src: "static/results/videos/8854283528_clip000.gif",
-      caption: "Q : Please segment 'Furry dog pushing colorful toy with green handle'",
-    },
-    {
-      src: "static/results/videos/9444233002_clip000.gif",
-      caption: "Q : Please segment 'Adult in patterned swim trunks guiding child in dark blue shorts'",
-    },
+  const videos = [
+    { src: 'static/results/videos/2594144360_clip000.mp4', caption: "Q : Please segment 'Man holding a baby'" },
+    { src: 'static/results/videos/4123900548_clip000.mp4', caption: "Q : Please segment 'Adult styling hair of a child'" },
+    { src: 'static/results/videos/5069582011_clip000.mp4', caption: "Q : Please segment 'Adult in dark jacket guiding child in helmet'" },
+    { src: 'static/results/videos/5178855777_clip000.mp4', caption: "Q : Please segment 'Hand brushing a cat'" },
+    { src: 'static/results/videos/5246766161_clip000.mp4', caption: "Q : Please segment 'Blond child in a pink and red dress reaching towards a small black dog'" },
+    { src: 'static/results/videos/5640939571_clip000.mp4', caption: "Q : Please segment 'Child eating from bowl'" },
+    { src: 'static/results/videos/7181519736_clip000.mp4', caption: "Q : Please segment 'Person with dark hair feeding child in red'" },
+    { src: 'static/results/videos/7315823866_clip000.mp4', caption: "Q : Please segment 'Man helping a child'" },
+    { src: 'static/results/videos/8236032895_clip000.mp4', caption: "Q : Please segment 'Adult with short hair drinking from dark brown bottle'" },
+    { src: 'static/results/videos/8369250084_clip000.mp4', caption: "Q : Please segment 'Person in white jacket reaching out to child in red and black jacket'" },
+    { src: 'static/results/videos/8584945123_clip000.mp4', caption: "Q : Please segment 'Baby in red outfit holding bright green ball'" },
+    { src: 'static/results/videos/8592396730_clip000.mp4', caption: "Q : Please segment 'Adult handing something to child'" },
+    { src: 'static/results/videos/8854283528_clip000.mp4', caption: "Q : Please segment 'Furry dog pushing colorful toy with green handle'" },
+    { src: 'static/results/videos/9444233002_clip000.mp4', caption: "Q : Please segment 'Adult in patterned swim trunks guiding child in dark blue shorts'" },
   ];
 
   let currentIndex2 = 0;
+  let isVideoAActive = true;
 
-  function updateImageAndCaption(index) {
-  const mainImage = document.getElementById('qual-samples');
-  const imageCaption = document.getElementById('qual-caption');
-  const captionBox = document.getElementById('caption-box');
+  function updateVideoAndCaption(index) {
+    const activeVideo = document.getElementById(isVideoAActive ? 'videoA' : 'videoB');
+    const bufferVideo = document.getElementById(isVideoAActive ? 'videoB' : 'videoA');
+    const bufferSource = bufferVideo.querySelector('source');
+    const captionText = document.getElementById('qual-caption');
+    const captionBox = document.getElementById('caption-box');
 
-  mainImage.style.opacity = '0';
-  captionBox.style.opacity = '0';
+    // 미리 버퍼 비디오에 로드
+    bufferSource.src = videos[index].src;
+    bufferVideo.load();
 
-  setTimeout(() => {
-    mainImage.src = images2[index].src;
+    bufferVideo.oncanplay = () => {
+      // 비디오 전환
+      activeVideo.style.display = 'none';
+      bufferVideo.style.display = 'inline';
 
-    // 작은 따옴표로 감싼 부분을 <b>태그로 강조
-    const rawCaption = images2[index].caption;
-    const formattedCaption = rawCaption.replace(/'([^']+)'/g, "<b>'$1'</b>");
-    imageCaption.innerHTML = formattedCaption;
+      // 캡션 업데이트
+      const rawCaption = videos[index].caption;
+      const formattedCaption = rawCaption.replace(/'([^']+)'/g, "<b>'$1'</b>");
+      captionText.innerHTML = formattedCaption;
 
-    mainImage.style.maxWidth = '100%';
-    mainImage.style.opacity = '1';
-    captionBox.style.opacity = '1';
-  }, 500);
-}
+      captionBox.style.opacity = '1';
+      isVideoAActive = !isVideoAActive;
+    };
+  }
 
   document.getElementById('qual-arrow-left').addEventListener('click', function () {
-    currentIndex2 = (currentIndex2 - 1 + images2.length) % images2.length;
-    updateImageAndCaption(currentIndex2);
+    currentIndex2 = (currentIndex2 - 1 + videos.length) % videos.length;
+    updateVideoAndCaption(currentIndex2);
   });
 
   document.getElementById('qual-arrow-right').addEventListener('click', function () {
-    currentIndex2 = (currentIndex2 + 1) % images2.length;
-    updateImageAndCaption(currentIndex2);
+    currentIndex2 = (currentIndex2 + 1) % videos.length;
+    updateVideoAndCaption(currentIndex2);
   });
 </script>
 
@@ -562,7 +524,6 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <!-- <h2 class="title is-3 has-text-centered">Qualitative Results</h2> -->
         <figure class="image is-centered">
           <img class="teaser-image" src="static/results/images/main_qual.jpg" alt="Qualitative Results" class="method main-quan">
           <figcaption class="has-text-centered caption" style="margin-top: 20px;">Qualitative results on <strong>InterRVOS-8K</strong>.</figcaption>
