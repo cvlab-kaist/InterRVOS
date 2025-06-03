@@ -138,7 +138,7 @@
       </p>
       <br>
       <div style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap;">
-        <img src="static/results/images/teaser.jpg" alt="Teaser" class="method" style="max-width: 90%; height: auto; display: block;">
+        <img class="teaser-image" src="static/results/images/teaser.jpg" alt="Teaser" class="method" style="max-width: 90%; height: auto; display: block;">
       </div>
       </div>
     </div>
@@ -287,7 +287,7 @@
       <div class="column is-full-width">
         <h2 class="title is-3 has-text-centered">Dataset Annotation Pipeline</h2>
         <figure class="image is-centered">
-          <img src="static/results/images/pipeline.jpg" alt="Data Annotation Pipeline" class="method main-quan">
+          <img class="teaser-image" src="static/results/images/pipeline.jpg" alt="Data Annotation Pipeline" class="method main-quan">
         </figure>
 
         <h2 class="content has-text-justified" style="margin-top: 20px;"></h2>
@@ -310,7 +310,7 @@
           </button>
           
           <div style="position: relative;">
-            <img src="static/results/images/data_samples_1.jpg" alt="Method image" class="method" id="dataset-samples" style="transition: opacity 0.5s ease-in-out; max-width: 100%;">
+            <img class="teaser-image" src="static/results/images/data_samples_1.jpg" alt="Method image" class="method" id="dataset-samples" style="transition: opacity 0.5s ease-in-out; max-width: 100%;">
 
             <p id="image-caption" style="margin-top: 10px; font-size: 16px; font-style: italic; color: #555;"></p>
           </div>
@@ -350,7 +350,7 @@
 
   let currentIndex = 0;
 
-  function updateImageAndCaption(index) {
+  function updateImageAndCaptionDatasetSamples(index) {
     const mainImage = document.getElementById('dataset-samples');
     const imageCaption = document.getElementById('image-caption');
   
@@ -373,12 +373,12 @@
 
   document.getElementById('arrow-left').addEventListener('click', function () {
     currentIndex = (currentIndex - 1 + images.length) % images.length;
-    updateImageAndCaption(currentIndex);
+    updateImageAndCaptionDatasetSamples(currentIndex);
   });
 
   document.getElementById('arrow-right').addEventListener('click', function () {
     currentIndex = (currentIndex + 1) % images.length;
-    updateImageAndCaption(currentIndex);
+    updateImageAndCaptionDatasetSamples(currentIndex);
   });
 </script>
 
@@ -389,7 +389,7 @@
       <div class="column is-full-width">
         <h2 class="title is-3 has-text-centered">Baseline Approach : ReVIOSa</h2>
         <figure class="image is-centered">
-          <img src="static/results/images/architecture.jpg" alt="Qualitative Results" class="method main-quan">
+          <img class="teaser-image" src="static/results/images/architecture.jpg" alt="Qualitative Results" class="method main-quan">
           <h2 class="content has-text-justified" style="margin-top: 20px;">
             As our proposed dataset InterRVOS-8K emphasizes a detailed understanding of object interactions
             and diverse motion dynamics, we present <b>ReVIOSa</b> (<u><b>Re</b></u>ferring <u><b>V</b></u>ideo <u><b>I</b></u>nteraction-aware <u><b>O</b></u>bject
@@ -405,13 +405,166 @@
   </div>
 </section>
 
+
+<section class="hero section"></section>
+<div class="container is-max-desktop">
+  <div class="columns is-centered">
+    <div class="column is-full-width">
+      <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
+      <p class="has-text-centered" style="margin-bottom: -30px; color: #666;">
+        <span style="font-size: 20px; vertical-align: middle;">⬇️</span> Click the arrows below to browse more qualitative results.
+      </p>
+      <div class="hero-body" style="position: relative; text-align: center;">
+        <button id="qual-arrow-left" style="position: absolute; top: 50%; left: -30px; transform: translateY(-50%); background: none; border: none; cursor: pointer; z-index: 10;">
+          <i class="fas fa-arrow-left" style="font-size: 24px; color: #333;"></i>
+        </button>
+
+        <div style="position: relative;">
+          <img src="static/results/videos/2594144360_clip000.gif" alt="First image" class="method" id="qual-samples" style="transition: opacity 0.5s ease-in-out; max-width: 100%;">
+        
+          <div id="caption-box" style="
+              background: #f9f9f9;
+              padding: 15px;
+              border-radius: 10px;
+              display: inline-block;
+              margin-top: 15px;
+              transition: opacity 0.5s ease-in-out;
+              box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.18); /* 은은한 그림자 */
+            ">
+            <p id="qual-caption" style="font-size: 16px; font-style: italic; color: #333; margin-bottom: 10px;">
+              Q : Please segment <b>'Man holding a baby'</b>
+            </p>
+            <p id="highlight-role" style="font-size: 15px; color: #444;">
+              A : Sure, it's <span class="actor-role"><b>Actor</b></span> and <span class="target-role"><b>Target</b></span>
+            </p>
+          </div>
+        </div>
+
+        <button id="qual-arrow-right" style="position: absolute; top: 50%; right: -30px; transform: translateY(-50%); background: none; border: none; cursor: pointer; z-index: 10;">
+          <i class="fas fa-arrow-right" style="font-size: 24px; color: #333;"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .actor-role {
+    background-color: #d0eaff;  /* pastel blue */
+    padding: 2px 6px;
+    border-radius: 5px;
+  }
+
+  .target-role {
+    background-color: #ffd6d6;  /* pastel red */
+    padding: 2px 6px;
+    border-radius: 5px;
+  }
+</style>
+
+<script>
+  const images2 = [
+    {
+      src: 'static/results/videos/2594144360_clip000.gif',
+      caption: "Q : Please segment 'Man holding a baby'",
+    },
+    {
+      src: 'static/results/videos/4123900548_clip000.gif',
+      caption: "Q : Please segment 'Adult styling hair of a child'",
+    },
+    {
+      src: 'static/results/videos/5069582011_clip000.gif',
+      caption: "Q : Please segment 'Adult in dark jacket guiding child in helmet'",
+    },
+    {
+      src: 'static/results/videos/5178855777_clip000.gif',
+      caption: "Q : Please segment 'Hand brushing a cat'",
+    },
+    {
+      src: 'static/results/videos/5246766161_clip000.gif',
+      caption: "Q : Please segment 'Blond child in a pink and red dress reaching towards a small black dog'",
+    },
+    {
+      src: "static/results/videos/5640939571_clip000.gif",
+      caption: "Q : Please segment 'Child eating from bowl'",
+    },
+    {
+      src: "static/results/videos/7181519736_clip000.gif",
+      caption: "Q : Please segment 'Person with dark hair feeding child in red'",
+    },
+    {
+      src: "static/results/videos/7315823866_clip000.gif",
+      caption: "Q : Please segment 'Man helping a child'",
+    },
+    {
+      src: "static/results/videos/8236032895_clip000.gif",
+      caption: "Q : Please segment 'Adult with short hair drinking from dark brown bottle'",
+    },
+    {
+      src: "static/results/videos/8369250084_clip000.gif",
+      caption: "Q : Please segment 'Person in white jacket reaching out to child in red and black jacket'",
+    },
+    {
+      src: "static/results/videos/8584945123_clip000.gif",
+      caption: "Q : Please segment 'Baby in red outfit holding bright green ball'",
+    },
+    {
+      src: "static/results/videos/8592396730_clip000.gif",
+      caption: "Q : Please segment 'Adult handing something to child'",
+    },
+    {
+      src: "static/results/videos/8854283528_clip000.gif",
+      caption: "Q : Please segment 'Furry dog pushing colorful toy with green handle'",
+    },
+    {
+      src: "static/results/videos/9444233002_clip000.gif",
+      caption: "Q : Please segment 'Adult in patterned swim trunks guiding child in dark blue shorts'",
+    },
+  ];
+
+  let currentIndex2 = 0;
+
+  function updateImageAndCaption(index) {
+  const mainImage = document.getElementById('qual-samples');
+  const imageCaption = document.getElementById('qual-caption');
+  const captionBox = document.getElementById('caption-box');
+
+  mainImage.style.opacity = '0';
+  captionBox.style.opacity = '0';
+
+  setTimeout(() => {
+    mainImage.src = images2[index].src;
+
+    // 작은 따옴표로 감싼 부분을 <b>태그로 강조
+    const rawCaption = images2[index].caption;
+    const formattedCaption = rawCaption.replace(/'([^']+)'/g, "<b>'$1'</b>");
+    imageCaption.innerHTML = formattedCaption;
+
+    mainImage.style.maxWidth = '100%';
+    mainImage.style.opacity = '1';
+    captionBox.style.opacity = '1';
+  }, 500);
+}
+
+  document.getElementById('qual-arrow-left').addEventListener('click', function () {
+    currentIndex2 = (currentIndex2 - 1 + images2.length) % images2.length;
+    updateImageAndCaption(currentIndex2);
+  });
+
+  document.getElementById('qual-arrow-right').addEventListener('click', function () {
+    currentIndex2 = (currentIndex2 + 1) % images2.length;
+    updateImageAndCaption(currentIndex2);
+  });
+</script>
+
+
 <section class="hero section qualitative-results">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
+        <!-- <h2 class="title is-3 has-text-centered">Qualitative Results</h2> -->
         <figure class="image is-centered">
-          <img src="static/results/images/main_qual.jpg" alt="Qualitative Results" class="method main-quan">
+          <img class="teaser-image" src="static/results/images/main_qual.jpg" alt="Qualitative Results" class="method main-quan">
           <figcaption class="has-text-centered caption" style="margin-top: 20px;">Qualitative results on <strong>InterRVOS-8K</strong>.</figcaption>
         </figure>
       </div>
@@ -428,8 +581,7 @@
           The best-performing results are presented in <strong>bold</strong>, while the second-best results are <u>underlined</u>. <br>
         </span>
         <figure class="image is-centered">
-          <img src="static/results/images/main_quan.jpg" alt="Quantitative Results" class="method main-quan" style="margin-top: 20px;">
-          <!-- <figcaption class="has-text-centered caption">Data statistics of InterRVOS-8K.</figcaption> -->
+          <img class="teaser-image" src="static/results/images/main_quan.jpg" alt="Quantitative Results" class="method main-quan" style="margin-top: 20px;">
         </figure>
       </div>
     </div>
@@ -491,7 +643,43 @@
 </footer>
 
 <!-- Statcounter tracking code -->
-  
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const images = document.querySelectorAll(".teaser-image");
+    const zoomOverlay = document.createElement("div");
+    zoomOverlay.classList.add("zoom-overlay");
+
+    const zoomImage = document.createElement("img");
+    zoomOverlay.appendChild(zoomImage);
+    document.body.appendChild(zoomOverlay);
+
+    images.forEach((img) => {
+      // Preload high-res image if available
+      const highResSrc = img.getAttribute("data-highres");
+      if (highResSrc) {
+        const preloadImg = new Image();
+        preloadImg.src = highResSrc;
+      }
+
+      img.addEventListener("click", () => {
+        zoomImage.src = highResSrc || img.src;
+        zoomOverlay.classList.add("active");
+      });
+    });
+
+    // Close the zoom overlay when clicking anywhere on it.
+    zoomOverlay.addEventListener("click", () => {
+      zoomOverlay.classList.remove("active");
+      zoomImage.src = "";
+    });
+
+    // Allow closing with the ESC key.
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") zoomOverlay.classList.remove("active");
+    });
+  });
+</script>
+
 <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
 
     <!-- End of Statcounter Code -->
