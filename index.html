@@ -132,18 +132,125 @@
 <section class="section hero teaser-video" style="padding-top: 0rem; padding-bottom: 0rem;"></section>
   <div class="columns is-centered has-text-centered">
     <div class="column is-four-fifths">
-      <h2 class="title is-3">InterRVOS</h2>
-      <p style="font-size: 20px; text-align: center; max-width: 100%;" id="slider-description">
+      <p style="font-size: 20px; text-align: center; max-width: 100%; margin-bottom: -50px;" id="slider-description">
         We introduce <b>Interaction-aware Referring Video Object Segmentation</b>, a new task that <br> requires segmenting both actor and target entities involved in an interaction.
       </p>
-      <br>
-      <div style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap;">
-        <img class="teaser-image" src="static/results/images/teaser.jpg" alt="Teaser" class="method" style="max-width: 90%; height: auto; display: block;">
-      </div>
       </div>
     </div>
   </div>
 </section>
+
+
+<section class="hero section"></section>
+<div class="container is-max-desktop">
+  <div class="columns is-centered">
+    <div class="column is-full-width">
+      <p class="has-text-centered" style="margin-bottom: -45px; margin-top: -30px; color: #666;">
+        <span style="font-size: 20px; vertical-align: middle;"></span> Click the arrows below to see more results.
+      </p>
+
+      <div class="hero-body" style="position: relative; text-align: center;">
+        <button id="teaser-arrow-left" style="position: absolute; top: 50%; left: -30px; transform: translateY(-50%); background: none; border: none; cursor: pointer; z-index: 10;">
+          <i class="fas fa-arrow-left" style="font-size: 24px; color: #333;"></i>
+        </button>
+
+        <div style="position: relative;">
+          <!-- Two alternating video tags -->
+          <video id="videoATeaser" autoplay loop muted playsinline preload="auto" style="max-width: 100%;" class="active-video">
+            <source src="static/results/videos/2594144360_clip000.mp4" type="video/mp4">
+          </video>
+          <video id="videoBTeaser" autoplay loop muted playsinline preload="auto" style="max-width: 100%; display: none;" class="buffer-video">
+            <source src="" type="video/mp4">
+          </video>
+
+          <!-- Caption box -->
+          <div id="teaser-caption-box" style="background: #f9f9f9; padding: 15px; border-radius: 10px; display: inline-block; margin-top: 15px; box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.18);">
+            <p id="teaser-caption" style="font-size: 16px; font-style: italic; color: #333; margin-bottom: 10px;">
+              Q : Please segment <b>'Man holding a baby'</b>
+            </p>
+            <p id="highlight-role" style="font-size: 15px; color: #444;">
+              A : Sure, it's <span class="actor-role"><b>Actor</b></span> and <span class="target-role"><b>Target</b></span>
+            </p>
+          </div>
+        </div>
+
+        <button id="teaser-arrow-right" style="position: absolute; top: 50%; right: -30px; transform: translateY(-50%); background: none; border: none; cursor: pointer; z-index: 10;">
+          <i class="fas fa-arrow-right" style="font-size: 24px; color: #333;"></i>
+        </button>
+      </div>
+
+      <!-- <div style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap;">
+        <img class="teaser-image" src="static/results/images/teaser.jpg" alt="Teaser" class="method" style="max-width: 90%; height: auto; display: block;">
+      </div> -->
+
+    </div>
+  </div>
+</div>
+
+<style>
+  .actor-role {
+    background-color: #d0eaff;
+    padding: 2px 6px;
+    border-radius: 5px;
+  }
+
+  .target-role {
+    background-color: #ffd6d6;
+    padding: 2px 6px;
+    border-radius: 5px;
+  }
+</style>
+
+<script>
+  const videosTeaser = [
+    { src: 'static/results/videos/2594144360_clip000.mp4', caption: "Q : Please segment 'Man holding a baby'" },
+    { src: 'static/results/videos/4123900548_clip000.mp4', caption: "Q : Please segment 'Adult styling hair of a child'" },
+    { src: 'static/results/videos/5069582011_clip000.mp4', caption: "Q : Please segment 'Adult in dark jacket guiding child in helmet'" },
+    { src: 'static/results/videos/5178855777_clip000.mp4', caption: "Q : Please segment 'Hand brushing a cat'" },
+    { src: 'static/results/videos/5246766161_clip000.mp4', caption: "Q : Please segment 'Blond child in a pink and red dress reaching towards a small black dog'" },
+    { src: 'static/results/videos/5640939571_clip000.mp4', caption: "Q : Please segment 'Child eating from bowl'" },
+    { src: 'static/results/videos/7181519736_clip000.mp4', caption: "Q : Please segment 'Person with dark hair feeding child in red'" },
+  ];
+
+  let currentIndexTeaser = 0;
+  let isVideoAActiveTeaser = true;
+
+  function updateVideoAndCaptionTeaser(index) {
+    const activeVideo = document.getElementById(isVideoAActiveTeaser ? 'videoATeaser' : 'videoBTeaser');
+    const bufferVideo = document.getElementById(isVideoAActiveTeaser ? 'videoBTeaser' : 'videoATeaser');
+    const bufferSource = bufferVideo.querySelector('source');
+    const captionText = document.getElementById('teaser-caption');
+    const captionBox = document.getElementById('teaser-caption-box');
+
+    // 미리 버퍼 비디오에 로드
+    bufferSource.src = videosTeaser[index].src;
+    bufferVideo.load();
+
+    bufferVideo.oncanplay = () => {
+      // 비디오 전환
+      activeVideo.style.display = 'none';
+      bufferVideo.style.display = 'inline';
+
+      // 캡션 업데이트
+      const rawCaption = videosTeaser[index].caption;
+      const formattedCaption = rawCaption.replace(/'([^']+)'/g, "<b>'$1'</b>");
+      captionText.innerHTML = formattedCaption;
+
+      captionBox.style.opacity = '1';
+      isVideoAActiveTeaser = !isVideoAActiveTeaser;
+    };
+  }
+
+  document.getElementById('teaser-arrow-left').addEventListener('click', function () {
+    currentIndexTeaser = (currentIndexTeaser - 1 + videosTeaser.length) % videosTeaser.length;
+    updateVideoAndCaptionTeaser(currentIndexTeaser);
+  });
+
+  document.getElementById('teaser-arrow-right').addEventListener('click', function () {
+    currentIndexTeaser = (currentIndexTeaser + 1) % videosTeaser.length;
+    updateVideoAndCaptionTeaser(currentIndexTeaser);
+  });
+</script>
 
 
 <!-- Paper abstract -->
@@ -410,8 +517,8 @@
   <div class="columns is-centered">
     <div class="column is-full-width">
       <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
-      <p class="has-text-centered" style="margin-bottom: -30px; color: #666;">
-        <span style="font-size: 20px; vertical-align: middle;"></span> Click the arrows below to browse more qualitative results.
+      <p class="has-text-centered" style="margin-bottom: -45px; color: #666;">
+        <span style="font-size: 20px; vertical-align: middle;"></span> Click the arrows below to see more results.
       </p>
 
       <div class="hero-body" style="position: relative; text-align: center;">
@@ -421,17 +528,17 @@
 
         <div style="position: relative;">
           <!-- Two alternating video tags -->
-          <video id="videoA" autoplay loop muted playsinline preload="auto" style="max-width: 100%;" class="active-video">
-            <source src="static/results/videos/2594144360_clip000.mp4" type="video/mp4">
+          <video id="videoAQual" autoplay loop muted playsinline preload="auto" style="max-width: 100%;" class="active-video">
+            <source src="static/results/videos/7315823866_clip000.mp4" type="video/mp4">
           </video>
-          <video id="videoB" autoplay loop muted playsinline preload="auto" style="max-width: 100%; display: none;" class="buffer-video">
+          <video id="videoBQual" autoplay loop muted playsinline preload="auto" style="max-width: 100%; display: none;" class="buffer-video">
             <source src="" type="video/mp4">
           </video>
 
           <!-- Caption box -->
-          <div id="caption-box" style="background: #f9f9f9; padding: 15px; border-radius: 10px; display: inline-block; margin-top: 15px; box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.18);">
+          <div id="qual-caption-box" style="background: #f9f9f9; padding: 15px; border-radius: 10px; display: inline-block; margin-top: 15px; box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.18);">
             <p id="qual-caption" style="font-size: 16px; font-style: italic; color: #333; margin-bottom: 10px;">
-              Q : Please segment <b>'Man holding a baby'</b>
+              Q : Please segment <b>'Man helping a child'</b>
             </p>
             <p id="highlight-role" style="font-size: 15px; color: #444;">
               A : Sure, it's <span class="actor-role"><b>Actor</b></span> and <span class="target-role"><b>Target</b></span>
@@ -463,18 +570,11 @@
 
 <script>
   const videos = [
-    { src: 'static/results/videos/2594144360_clip000.mp4', caption: "Q : Please segment 'Man holding a baby'" },
-    { src: 'static/results/videos/4123900548_clip000.mp4', caption: "Q : Please segment 'Adult styling hair of a child'" },
-    { src: 'static/results/videos/5069582011_clip000.mp4', caption: "Q : Please segment 'Adult in dark jacket guiding child in helmet'" },
-    { src: 'static/results/videos/5178855777_clip000.mp4', caption: "Q : Please segment 'Hand brushing a cat'" },
-    { src: 'static/results/videos/5246766161_clip000.mp4', caption: "Q : Please segment 'Blond child in a pink and red dress reaching towards a small black dog'" },
-    { src: 'static/results/videos/5640939571_clip000.mp4', caption: "Q : Please segment 'Child eating from bowl'" },
-    { src: 'static/results/videos/7181519736_clip000.mp4', caption: "Q : Please segment 'Person with dark hair feeding child in red'" },
     { src: 'static/results/videos/7315823866_clip000.mp4', caption: "Q : Please segment 'Man helping a child'" },
-    { src: 'static/results/videos/8236032895_clip000.mp4', caption: "Q : Please segment 'Adult with short hair drinking from dark brown bottle'" },
-    { src: 'static/results/videos/8369250084_clip000.mp4', caption: "Q : Please segment 'Person in white jacket reaching out to child in red and black jacket'" },
+    { src: 'static/results/videos/8236032895_clip000.mp4', caption: "Q : Please segment 'Bottle being drunk from by person'" },
+    { src: 'static/results/videos/8369250084_clip000.mp4', caption: "Q : Please segment 'Person in a white jacket being approached by a child in a red and black jacket'" },
     { src: 'static/results/videos/8584945123_clip000.mp4', caption: "Q : Please segment 'Baby in red outfit holding bright green ball'" },
-    { src: 'static/results/videos/8592396730_clip000.mp4', caption: "Q : Please segment 'Adult handing something to child'" },
+    { src: 'static/results/videos/8592396730_clip000.mp4', caption: "Q : Please segment 'Child with short brown hair receiving from adult in black hoodie'" },
     { src: 'static/results/videos/8854283528_clip000.mp4', caption: "Q : Please segment 'Furry dog pushing colorful toy with green handle'" },
     { src: 'static/results/videos/9444233002_clip000.mp4', caption: "Q : Please segment 'Adult in patterned swim trunks guiding child in dark blue shorts'" },
   ];
@@ -482,12 +582,12 @@
   let currentIndex2 = 0;
   let isVideoAActive = true;
 
-  function updateVideoAndCaption(index) {
-    const activeVideo = document.getElementById(isVideoAActive ? 'videoA' : 'videoB');
-    const bufferVideo = document.getElementById(isVideoAActive ? 'videoB' : 'videoA');
+  function updateVideoAndCaptionQual(index) {
+    const activeVideo = document.getElementById(isVideoAActive ? 'videoAQual' : 'videoBQual');
+    const bufferVideo = document.getElementById(isVideoAActive ? 'videoBQual' : 'videoAQual');
     const bufferSource = bufferVideo.querySelector('source');
     const captionText = document.getElementById('qual-caption');
-    const captionBox = document.getElementById('caption-box');
+    const captionBox = document.getElementById('qual-caption-box');
 
     // 미리 버퍼 비디오에 로드
     bufferSource.src = videos[index].src;
@@ -510,12 +610,12 @@
 
   document.getElementById('qual-arrow-left').addEventListener('click', function () {
     currentIndex2 = (currentIndex2 - 1 + videos.length) % videos.length;
-    updateVideoAndCaption(currentIndex2);
+    updateVideoAndCaptionQual(currentIndex2);
   });
 
   document.getElementById('qual-arrow-right').addEventListener('click', function () {
     currentIndex2 = (currentIndex2 + 1) % videos.length;
-    updateVideoAndCaption(currentIndex2);
+    updateVideoAndCaptionQual(currentIndex2);
   });
 </script>
 
