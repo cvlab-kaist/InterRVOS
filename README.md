@@ -26,18 +26,18 @@ KAIST AI
 
 ## 📢 News
 
-- [ ] Upcoming : Data annotation pipeline
 - [ ] Upcoming: InterRVOS-127K dataset and ReVIOSa checkpoints
+- [x] Upcoming : Data annotation pipeline
 - [x] Released: Training code, inference & evaluation code
 - [x] Released: InterRVOS on [ArXiv](https://arxiv.org/abs/2506.02356) and [Project Page](https://cvlab-kaist.github.io/InterRVOS/)
 
 
 ## 🎯 Release Progress
 
-- [ ] Data annotation pipeline code
 - [ ] Model checkpoints
 - [ ] Modified open-source RVOS datasets (MeViS, Ref-Youtube-VOS and Ref-DAVIS)
 - [ ] InterRVOS-127K dataset (Training & Evaluation)
+- [x] Data annotation pipeline code
 - [x] Inference & evaluation code
 - [x] Training code
 
@@ -45,16 +45,6 @@ KAIST AI
 ## Overview
 
 This repository contains the code for the paper **InterRVOS: Interaction-aware Referring Video Object Segmentation**.
-
-<p align="center">
-  <img src="assets/teaser_1.gif" alt="" width="500"><br>
-  <em> "Adult in dark jacket guiding child in helmet" </em>
-</p>
-
-<p align="center">
-  <img src="assets/teaser_2.gif" alt="" width="500"><br>
-  <em> "Furry dog pushing colorful toy with green handle" </em>
-</p>
 
 In this paper, we introduce **Interaction-aware Referring Video Object Segmentation (InterRVOS)**, a novel task that focuses on the modeling of interactions. 
 It requires the model to segment the <b>actor</b> and <b>target</b> objects separately, reflecting their asymmetric roles in an interaction. Please refer to the [project page](https://cvlab-kaist.github.io/InterRVOS/) for detailed visualization results.
@@ -65,7 +55,7 @@ Instructions for training, inference, and evaluation are provided in [ReVIOSa/RE
 
 ## Data Annotation
 
-We are currently working on releasing the code for the data annotation pipeline. Stay tuned for updates!
+Instructions for our automatic data-annotation pipeline are provided in the [data_annotation](data_annotation).
 
 ## Acknowledgement
 This project is based on [Sa2VA](https://github.com/magic-research/Sa2VA). Many thanks to the authors for their great works!
