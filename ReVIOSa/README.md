@@ -85,11 +85,11 @@ You can run inference with the following command:
 export CUDA_VISIBLE_DEVICES=0
 
 # Adjust EXP_NAME and pid settings
-HF_PATH="ReVIOSa/HF/$EXP_NAME"
+HF_PATH="wooj0216/ReVIOSa-4B"
 python model/evaluation/ref_vos_eval.py \
     $HF_PATH \
     --dataset INTERRVOS \
-    --work_dir ReVIOSa/EVAL/$EXP_NAME/interrvos \
+    --work_dir EVAL/$EXP_NAME/interrvos \
     --n_pid $N_PID --pid $PID
 ```
 Or, you can simply run by using:
@@ -110,14 +110,14 @@ export PYTHONPATH=$(pwd):$PYTHONPATH
 
 # Merge split results
 python tools/eval/merge_json.py \
-    --result_dir ReVIOSa/EVAL/$EXP_NAME/interrvos \
-    --save_path ReVIOSa/EVAL/$EXP_NAME/interrvos/results.json
+    --result_dir EVAL/$EXP_NAME/interrvos \
+    --save_path EVAL/$EXP_NAME/interrvos/results.json
 
 # Run evaluation
 python tools/eval/eval_interrvos.py \
-    --pred_path ReVIOSa/EVAL/$EXP_NAME/interrvos/results.json \
+    --pred_path EVAL/$EXP_NAME/interrvos/results.json \
     --data_dir datasets/InterRVOS/val \
-    --save_path ReVIOSa/EVAL/$EXP_NAME/interrvos/eval_actor.json
+    --save_path EVAL/$EXP_NAME/interrvos/eval_actor.json
 ```
 You can also find inference and evaluation scripts for other datasets in the scripts directory.
 

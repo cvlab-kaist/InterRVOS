@@ -11,7 +11,7 @@ from mmengine.model import BaseModule
 
 from vlm.utils import load_checkpoint_with_prefix, load_state_dict_to_model
 
-BASE_DIR = 'pretrained_weights/'
+BASE_DIR = '/mnt/dataset1/woojeong/pretrained_weights/'
 
 
 class SAM2TrainRunner(BaseModule):

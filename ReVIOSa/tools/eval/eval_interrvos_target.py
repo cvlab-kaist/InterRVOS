@@ -68,8 +68,8 @@ if __name__ == '__main__':
     args = parser.parse_args()
     queue = mp.Queue()
     
-    exp_path = os.path.join(args.data_dir, "new_meta_expressions.json")
-    mask_path = os.path.join(args.data_dir, "new_mask_dict.json")
+    exp_path = os.path.join(args.data_dir, "meta_expressions.json")
+    mask_path = os.path.join(args.data_dir, "mask_dict.json")
     
     exp_dict = json.load(open(exp_path))['videos']
     mask_dict = json.load(open(mask_path))

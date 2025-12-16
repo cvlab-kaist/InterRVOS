@@ -56,10 +56,10 @@ def mask_save(item, mask_prediction, work_dir):
 
 DATASETS_INFO = {
     'INTERRVOS': {
-        'data_root': 'datasets/InterRVOS/val/',
-        'image_folder': 'datasets/InterRVOS/val/JPEGImages',
-        'expression_file': 'datasets/InterRVOS/val/meta_expressions.json',
-        'mask_file': 'datasets/InterRVOS/val/mask_dict.json',
+        'data_root': '/mnt/dataset1/woojeong/datasets/InterRVOS_upload/val/',
+        'image_folder': '/mnt/dataset1/woojeong/datasets/InterRVOS/val/JPEGImages',
+        'expression_file': '/mnt/dataset1/woojeong/datasets/InterRVOS_upload/val/meta_expressions.json',
+        'mask_file': '/mnt/dataset1/woojeong/datasets/InterRVOS_upload/val/mask_dict.json',
     },
     'MEVIS': {
         'data_root': 'datasets/mevis/valid/',
@@ -196,7 +196,6 @@ if __name__ == '__main__':
             mask_prediction_tar = np.zeros((item['length'], item['ori_height'], item['ori_width']), dtype=np.uint8)
 
         if args.submit:
-            assert args.dataset != "INTERRVOS"
             async_func(executor, mask_save, item=item, mask_prediction=mask_prediction_act, work_dir=work_dir)
             encoded_mask_act = None
             encoded_mask_tar = None
@@ -220,19 +219,18 @@ if __name__ == '__main__':
     executor.shutdown(wait=True)
     print(f'[Rank {rank}] : Finished.')
     
-    if not args.submit:
-        results = collect_results_cpu(results, len(dataset))
-        if get_rank() == 0:
-            final_results = {}
-            for item in results:
-                vid_id = item['video_id']
-                exp_id = item['exp_id']
-                if vid_id not in final_results:
-                    final_results[vid_id] = {}
-                assert exp_id not in final_results[vid_id]
-                final_results[vid_id][exp_id] = item
-            os.makedirs(work_dir, exist_ok=True)
-            json.dump(final_results, open(f'{work_dir}/results_pid_{args.pid}.json', 'w'), indent=4)
+    results = collect_results_cpu(results, len(dataset))
+    if get_rank() == 0:
+        final_results = {}
+        for item in results:
+            vid_id = item['video_id']
+            exp_id = item['exp_id']
+            if vid_id not in final_results:
+                final_results[vid_id] = {}
+            assert exp_id not in final_results[vid_id]
+            final_results[vid_id][exp_id] = item
+        os.makedirs(work_dir, exist_ok=True)
+        json.dump(final_results, open(f'{work_dir}/results_pid_{args.pid}.json', 'w'), indent=4)
 
     if rank == 0:
         print('Done')

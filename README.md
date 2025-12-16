@@ -26,7 +26,7 @@ KAIST AI
 
 ## 📢 News
 
-- [ ] Upcoming: InterRVOS-127K dataset and ReVIOSa checkpoints
+- [x] Upcoming: InterRVOS-127K dataset and ReVIOSa checkpoints
 - [x] Upcoming : Data annotation pipeline
 - [x] Released: Training code, inference & evaluation code
 - [x] Released: InterRVOS on [ArXiv](https://arxiv.org/abs/2506.02356) and [Project Page](https://cvlab-kaist.github.io/InterRVOS/)
@@ -34,9 +34,8 @@ KAIST AI
 
 ## 🎯 Release Progress
 
-- [ ] Model checkpoints
-- [ ] Modified open-source RVOS datasets (MeViS, Ref-Youtube-VOS and Ref-DAVIS)
-- [ ] InterRVOS-127K dataset (Training & Evaluation)
+- [x] Model checkpoints
+- [x] InterRVOS-127K dataset (Training & Evaluation)
 - [x] Data annotation pipeline code
 - [x] Inference & evaluation code
 - [x] Training code
@@ -48,6 +47,50 @@ This repository contains the code for the paper **InterRVOS: Interaction-aware R
 
 In this paper, we introduce **Interaction-aware Referring Video Object Segmentation (InterRVOS)**, a novel task that focuses on the modeling of interactions. 
 It requires the model to segment the <b>actor</b> and <b>target</b> objects separately, reflecting their asymmetric roles in an interaction. Please refer to the [project page](https://cvlab-kaist.github.io/InterRVOS/) for detailed visualization results.
+
+## Model Download
+
+We release the pretrained **ReVIOSa-4B** model on Hugging Face 🤗:
+[**wooj0216/ReVIOSa-4B**](https://huggingface.co/wooj0216/ReVIOSa-4B)
+
+### 🚀 Quick Start
+```
+import torch
+from transformers import AutoTokenizer, AutoModel
+from PIL import Image
+import numpy as np
+import os
+
+# load the model and tokenizer
+path = "wooj0216/ReVIOSa-4B"
+model = AutoModel.from_pretrained(
+    path,
+    torch_dtype=torch.bfloat16,
+    low_cpu_mem_usage=True,
+    use_flash_attn=True,
+    trust_remote_code=True).eval().cuda()
+tokenizer = AutoTokenizer.from_pretrained(path, trust_remote_code=True, use_fast=False)
+
+video_folder = "/PATH/TO/VIDEO_FOLDER"
+images_paths = os.listdir(video_folder)
+images_paths = [os.path.join(video_folder, image_path) for image_name in images_paths]
+text_prompts = "<image>Please segment the child reaching out to man."
+input_dict = {
+    'video': images_paths,
+    'text': text_prompts,
+    'past_text': '',
+    'mask_prompts': None,
+    'tokenizer': tokenizer,
+}
+return_dict = model.predict_forward(**input_dict)
+answer = return_dict["prediction"]
+masks = return_dict['prediction_masks']
+```
+
+## Dataset
+
+We release our dataset **InterRVOS-127K** model on Hugging Face 🤗:
+[**wooj0216/ReVIOSa-4B**](https://huggingface.co/wooj0216/ReVIOSa-4B)
 
 ## Model Training & Inference
 

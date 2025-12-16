@@ -7,9 +7,10 @@ PID=$2
 N_PID=$3
 EXP_NAME=$4
 
-HF_PATH="ReVIOSa/HF/$EXP_NAME"
+HF_PATH="/mnt/dataset1/woojeong/pretrained_weights/ReVIOSa-4B"
 python model/evaluation/ref_vos_eval.py \
     $HF_PATH \
     --dataset INTERRVOS \
-    --work_dir ReVIOSa/EVAL/$EXP_NAME/interrvos \
+    --work_dir EVAL/$EXP_NAME/interrvos \
+    --submit \
     --n_pid $N_PID --pid $PID

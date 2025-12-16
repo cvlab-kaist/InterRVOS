@@ -7,9 +7,9 @@ PID=$2
 N_PID=$3
 EXP_NAME=$4
 
-HF_PATH="ReVIOSa/HF/$EXP_NAME"
+HF_PATH="wooj0216/ReVIOSa-4B"
 python model/evaluation/ref_vos_eval.py \
     $HF_PATH \
     --dataset DAVIS \
-    --work_dir ReVIOSa/EVAL/$EXP_NAME/ref_davis \
+    --work_dir EVAL/$EXP_NAME/ref_davis \
     --n_pid $N_PID --pid $PID

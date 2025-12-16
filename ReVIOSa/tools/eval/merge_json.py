@@ -26,8 +26,8 @@ def merge_json_files(result_dir, save_path):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument("--result_dir", type=str, default="ReVIOSa/EVAL/reviosa_1b_interrvos/interrvos")
-    parser.add_argument("--save_path", type=str, default="ReVIOSa/EVAL/reviosa_1b_interrvos/interrvos/results.json")
+    parser.add_argument("--result_dir", type=str, default="EVAL/reviosa_1b_interrvos/interrvos")
+    parser.add_argument("--save_path", type=str, default="EVAL/reviosa_1b_interrvos/interrvos/results.json")
     args = parser.parse_args()
 
     if not os.path.exists(args.save_path):
