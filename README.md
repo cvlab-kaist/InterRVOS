@@ -90,15 +90,15 @@ masks = return_dict['prediction_masks']
 ## Dataset
 
 We release our dataset **InterRVOS-127K** model on Hugging Face 🤗:
-[**wooj0216/ReVIOSa-4B**](https://huggingface.co/wooj0216/ReVIOSa-4B)
+[**wooj0216/InterRVOS-127K**](https://huggingface.co/datasets/wooj0216/InterRVOS-127K)
 
 ## Model Training & Inference
 
-Instructions for training, inference, and evaluation are provided in [ReVIOSa/README.md](ReVIOSa/README.md).
+Instructions for training, inference, and evaluation are provided in **[ReVIOSa/README.md](ReVIOSa/README.md)**.
 
 ## Data Annotation
 
-Instructions for our automatic data-annotation pipeline are provided in the [data_annotation](data_annotation).
+Our automatic data-annotation pipeline are provided in the **[data_annotation](data_annotation)**.
 
 ## Acknowledgement
 This project is based on [Sa2VA](https://github.com/magic-research/Sa2VA). Many thanks to the authors for their great works!
