@@ -18,8 +18,11 @@ KAIST AI
 <a href="https://cvlab-kaist.github.io/InterRVOS/">
   <img src="https://img.shields.io/badge/Project_Page-Available-1E90FF">
 </a>
-<a href="">
-  <img src="https://img.shields.io/badge/Dataset-TBA-20B2AA" >
+<a href="https://huggingface.co/wooj0216/ReVIOSa-4B">
+  <img src="https://img.shields.io/badge/🤗 Huggingface Models-Available-6A5ACD" >
+</a>
+<a href="https://huggingface.co/datasets/wooj0216/InterRVOS-127K">
+  <img src="https://img.shields.io/badge/Dataset-Available-20B2AA" >
 </a>
 
 </div>
@@ -50,8 +53,8 @@ It requires the model to segment the <b>actor</b> and <b>target</b> objects sepa
 
 ## Model Download
 
-We release the pretrained **ReVIOSa-4B** model on Hugging Face 🤗:
-[**wooj0216/ReVIOSa-4B**](https://huggingface.co/wooj0216/ReVIOSa-4B)
+‼️ We release the pretrained **ReVIOSa-1B** and **ReVIOSa-4B** model on Hugging Face 🤗:
+[**ReVIOSa-1B**](https://huggingface.co/wooj0216/ReVIOSa-1B) and [**ReVIOSa-4B**](https://huggingface.co/wooj0216/ReVIOSa-4B)
 
 ### 🚀 Quick Start
 ```
@@ -89,7 +92,7 @@ masks = return_dict['prediction_masks']
 
 ## Dataset
 
-We release our dataset **InterRVOS-127K** model on Hugging Face 🤗:
+‼️ We release our dataset **InterRVOS-127K** model on Hugging Face 🤗:
 [**wooj0216/InterRVOS-127K**](https://huggingface.co/datasets/wooj0216/InterRVOS-127K)
 
 ## Model Training & Inference
