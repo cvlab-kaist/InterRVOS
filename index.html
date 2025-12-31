@@ -115,17 +115,29 @@
                 </a>
                 </span>
 
+                <!-- Huggingface Model Link -->
+                <span class="link-block">
+                  <a href="https://huggingface.co/wooj0216/ReVIOSa-4B" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      🤗
+                    </span>
+                    <span>Model</span>
+                  </a>
+                </span>
+
                 <!-- Dataset Link -->
                 <span class="link-block">
-                  <a href="" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://huggingface.co/datasets/wooj0216/InterRVOS-127K" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
-                      <svg class="svg-inline--fa fa-database fa-w-14" style="width: 20px; height: 20px;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="database" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
-                        <path fill="currentColor" d="M448 73.143v45.714C448 159.143 347.667 192 224 192S0 159.143 0 118.857V73.143C0 32.857 100.333 0 224 0s224 32.857 224 73.143zM448 176v102.857C448 319.143 347.667 352 224 352S0 319.143 0 278.857V176c48.125 33.143 136.208 48.572 224 48.572S399.874 209.143 448 176zm0 160v102.857C448 479.143 347.667 512 224 512S0 479.143 0 438.857V336c48.125 33.143 136.208 48.572 224 48.572S399.874 369.143 448 336z"></path></svg><!-- <i class="fas fa-database"></i> Font Awesome fontawesome.com -->
+                      🤗
                     </span>
                     <span>Dataset</span>
                   </a>
                 </span>
-                </div>
+
+              </div>
               </div>
         </div>
       </div>
@@ -133,19 +145,28 @@
   </div>
 </section>
 
-<section class="section hero teaser-video" style="padding-top: 0rem; padding-bottom: 0rem;"></section>
-  <div class="columns is-centered has-text-centered">
-    <div class="column is-four-fifths">
+<section class="section hero teaser-video" style="padding-top: 0rem; padding-bottom: 0rem;">
+  <div class="columns is-centered">
+    <div class="column is-full has-text-centered">
+
+      <div class="hf-notice-box">
+        <p>
+          🚀 <b>25.12.15 Update!</b><br>
+          We recently released our <b>model (1B / 4B)</b> and <b>dataset (InterRVOS-127K)</b> on
+          <span class="hf-text">Hugging Face</span>. Please check it out!
+        </p>
+      </div>
+
       <p style="font-size: 20px; text-align: center; max-width: 100%; margin-bottom: -50px;" id="slider-description">
-        We introduce <b>Interaction-aware Referring Video Object Segmentation (InterRVOS)</b>, 
-        a novel task that <br> 
-        extends standard RVOS by requiring the model to segment the 
-        <span style="color: #58aef5;"><b>actor</b></span> 
-        and 
-        <span style="color: rgb(244, 130, 113);"><b>target</b></span> 
+        <br>We introduce <b>Interaction-aware Referring Video Object Segmentation (InterRVOS)</b>,
+        a novel task that <br>
+        extends standard RVOS by requiring the model to segment the
+        <span style="color: #58aef5;"><b>actor</b></span>
+        and
+        <span style="color: rgb(244, 130, 113);"><b>target</b></span>
         objects <i>separately</i>.
       </p>
-      </div>
+
     </div>
   </div>
 </section>
@@ -209,6 +230,26 @@
     padding: 2px 6px;
     border-radius: 5px;
   }
+
+.hf-notice-box {
+  display: inline-block;
+  margin: 20px auto 10px auto;
+  padding: 14px 22px;
+  border-radius: 14px;
+  background: rgba(88, 174, 245, 0.12);
+  border: 2px solid rgba(88, 174, 245, 0.45);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.hf-notice-box b {
+  font-weight: 600;
+}
+
+.hf-text {
+  color: #3b8edb;
+  font-weight: 600;
+}
 </style>
 
 <script>
