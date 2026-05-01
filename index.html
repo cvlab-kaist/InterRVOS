@@ -26,7 +26,7 @@
 
   <title>InterRVOS: Interaction-aware Referring Video Object Segmentation</title>
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500,700|Noto+Sans|Castoro"
   rel="stylesheet">
 
   <link rel="stylesheet" href="static/css/bulma.min.css">
@@ -78,8 +78,11 @@
                       <span class="author-block" style="margin-top: -10px;"></span>
                       <!-- <span class="author-block" style="margin-top: 20px;"><small><sup>*</sup>Indicates Equal Contributions</small></span> -->
                   </div>
-                  <div style="margin-top: 0px;">
-                      <span class="is-size-5 publication-venue">ArXiv 2025</span>
+                  <div style="margin-top: 10px;">
+                      <span class="cvpr-badge">
+                          <span class="cvpr-badge-name">CVPR</span>
+                          <span class="cvpr-badge-year">2026</span>
+                      </span>
                   </div>
 
 
@@ -149,6 +152,15 @@
   <div class="columns is-centered">
     <div class="column is-full has-text-centered">
 
+      <div class="accepted-notice-box">
+        <p>
+          🎉 <b>Great News!</b><br>
+          Our paper has been <span class="accepted-text">accepted to CVPR 2026</span>!
+          Huge thanks to all collaborators and the community for the support.
+        </p>
+      </div>
+      <br>
+
       <div class="hf-notice-box">
         <p>
           🚀 <b>25.12.15 Update!</b><br>
@@ -157,10 +169,9 @@
         </p>
       </div>
 
-      <p style="font-size: 20px; text-align: center; max-width: 100%; margin-bottom: -50px;" id="slider-description">
-        <br>We introduce <b>Interaction-aware Referring Video Object Segmentation (InterRVOS)</b>,
-        a novel task that <br>
-        extends standard RVOS by requiring the model to segment the
+      <p style="font-size: 20px; text-align: center; width: 900px; max-width: 92%; margin: 0 auto -50px auto;" id="slider-description">
+        <br>We introduce <b>Interaction-aware Referring Video Object Segmentation (InterRVOS)</b>,<br>
+        a novel task that extends standard RVOS by requiring the model to segment the
         <span style="color: #58aef5;"><b>actor</b></span>
         and
         <span style="color: rgb(244, 130, 113);"><b>target</b></span>
@@ -240,6 +251,9 @@
   border: 2px solid rgba(88, 174, 245, 0.45);
   font-size: 18px;
   line-height: 1.5;
+  width: 900px;
+  max-width: 92%;
+  box-sizing: border-box;
 }
 
 .hf-notice-box b {
@@ -249,6 +263,63 @@
 .hf-text {
   color: #3b8edb;
   font-weight: 600;
+}
+
+.cvpr-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 18px;
+  font-family: 'Google Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #ffffff;
+  background: linear-gradient(135deg, #1f3a8a 0%, #3b5bdb 55%, #5b8def 100%);
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(59, 91, 219, 0.28),
+              inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.cvpr-badge-name {
+  font-weight: 700;
+}
+
+.cvpr-badge-divider {
+  width: 1px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.55);
+  display: inline-block;
+}
+
+.cvpr-badge-year {
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+.accepted-notice-box {
+  display: inline-block;
+  margin: 20px auto 10px auto;
+  padding: 14px 22px;
+  border-radius: 14px;
+  background: rgba(217, 83, 79, 0.10);
+  border: 2px solid rgba(217, 83, 79, 0.45);
+  font-size: 18px;
+  line-height: 1.5;
+  width: 900px;
+  max-width: 92%;
+  box-sizing: border-box;
+}
+
+.accepted-notice-box b {
+  font-weight: 600;
+}
+
+.accepted-text {
+  color: #d9534f;
+  font-weight: 700;
 }
 </style>
 
