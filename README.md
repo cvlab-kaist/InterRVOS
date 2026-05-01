@@ -10,7 +10,7 @@ KAIST AI
 <br>
 &dagger;: Corresponding Author
 
-**ArXiv 2025**
+**CVPR 2026**
 
 <a href="https://arxiv.org/abs/2506.02356">
   <img src="https://img.shields.io/badge/arXiv-2506.02356-B31B1B?logo=arxiv&logoColor=white">
