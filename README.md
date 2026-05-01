@@ -12,7 +12,7 @@ KAIST AI
 
 **CVPR 2026**
 
-<a href="https://arxiv.org/abs/2506.02356">
+<a href="https://arxiv.org/abs/2506.02356v3">
   <img src="https://img.shields.io/badge/arXiv-2506.02356-B31B1B?logo=arxiv&logoColor=white">
 </a>
 <a href="https://cvlab-kaist.github.io/InterRVOS/">
@@ -32,7 +32,7 @@ KAIST AI
 - [x] Upcoming: InterRVOS-127K dataset and ReVIOSa checkpoints
 - [x] Upcoming : Data annotation pipeline
 - [x] Released: Training code, inference & evaluation code
-- [x] Released: InterRVOS on [ArXiv](https://arxiv.org/abs/2506.02356) and [Project Page](https://cvlab-kaist.github.io/InterRVOS/)
+- [x] Released: InterRVOS on [ArXiv](https://arxiv.org/abs/2506.02356v3) and [Project Page](https://cvlab-kaist.github.io/InterRVOS/)
 
 
 ## 🎯 Release Progress
@@ -116,6 +116,6 @@ If you find this repository useful, please consider referring to the following p
     eprint={2506.02356},
     archivePrefix={arXiv},
     primaryClass={cs.CV},
-    url={https://arxiv.org/abs/2506.02356},
+    url={https://arxiv.org/abs/2506.02356v3},
 }
 ```
